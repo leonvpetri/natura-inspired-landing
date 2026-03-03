@@ -1,20 +1,26 @@
+import GridOverlay from "@/components/landing/GridOverlay";
+import ScrollObserver from "@/components/landing/ScrollObserver";
 import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
 import ProductsSection from "@/components/landing/ProductsSection";
 import AboutSection from "@/components/landing/AboutSection";
-import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import IngredientsSection from "@/components/landing/IngredientsSection";
 import LeadFormSection from "@/components/landing/LeadFormSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
+      <GridOverlay />
+      <ScrollObserver />
       <Header />
-      <HeroSection />
-      <ProductsSection />
-      <AboutSection />
-      <TestimonialsSection />
-      <LeadFormSection />
+      <main className="relative z-10 pt-20">
+        <HeroSection />
+        <ProductsSection />
+        <AboutSection />
+        <IngredientsSection />
+        <LeadFormSection />
+      </main>
       <Footer />
     </div>
   );
