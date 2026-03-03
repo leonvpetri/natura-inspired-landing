@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { NavLink } from "../NavLink"; // Verifique se o caminho do NavLink está correto
+import { NavLink } from "../NavLink"; 
 import logoImg from "../../assets/marcia-logo.jpg"; 
 
 const Header = () => {
@@ -14,32 +14,49 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lista dos itens originais do menu que haviam sumido
+  const menuItems = [
+    { name: "PRODUTOS", path: "/produtos" },
+    { name: "SOBRE", path: "/sobre" },
+    { name: "SUSTENTABILIDADE", path: "/sustentabilidade" },
+    { name: "CONTATO", path: "/contato" },
+  ];
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled 
-          ? "bg-white/80 backdrop-blur-lg border-b border-gray-100 py-3" 
-          : "bg-transparent py-6"
+          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 py-3" 
+          : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* LOGO AREA */}
+        
+        {/* LOGO - Agora integrada corretamente */}
         <NavLink to="/" className="transition-transform duration-300 hover:scale-[1.03]">
           <img 
             src={logoImg} 
             alt="Márcia Ferreira" 
-            className="h-12 md:h-14 w-auto object-contain mix-blend-multiply" 
+            className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" 
           />
         </NavLink>
 
-        {/* MENU - Estilo Apple */}
-        <nav className="hidden md:flex items-center gap-8">
-          <NavLink to="/" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
-            Início
-          </NavLink>
-          <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all active:scale-95 shadow-lg">
-            Agendar Agora
+        {/* MENU RESTAURADO - Com os itens originais da AuraSkin */}
+        <nav className="hidden md:flex items-center gap-10">
+          {menuItems.map((item) => (
+            <NavLink 
+              key={item.name}
+              to={item.path} 
+              className="text-[11px] tracking-[0.2em] font-medium text-gray-500 hover:text-black transition-colors"
+            >
+              {item.name}
+            </NavLink>
+          ))}
+          
+          {/* BOTÃO DE AÇÃO */}
+          <button className="bg-black text-white px-6 py-2 rounded-full text-[11px] tracking-widest font-medium hover:bg-gray-800 transition-all active:scale-95 shadow-sm">
+            AGENDAR AGORA
           </button>
         </nav>
       </div>
