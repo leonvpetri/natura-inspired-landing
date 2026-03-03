@@ -1,73 +1,48 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import Icon from "./Icon";
-
-const navLinks = [
-  { label: "Produtos", href: "#produtos" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Sustentabilidade", href: "#ingredientes" },
-  { label: "Contato", href: "#contato" },
-];
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import { NavLink } from "../NavLink"; // Verifique se o caminho do NavLink está correto
+import logoImg from "../../assets/marcia-logo.jpg"; 
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 glass-panel">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <span className="font-bold tracking-tight text-lg">
-            AURA<span className="font-light opacity-50">skin</span>
-          </span>
-        </div>
-
-        <nav className="hidden md:flex gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-xs font-mono uppercase tracking-widest text-neutral-500 hover:text-black transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden md:block">
-          <a href="#contato" className="beam-btn group inline-flex">
-            <span className="beam-spinner"></span>
-            <span className="beam-btn-content flex items-center gap-2">
-              <span>Descubra</span>
-              <Icon icon="solar:arrow-right-linear" className="text-lg" />
-            </span>
-          </a>
-        </div>
-
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground"
-          aria-label="Menu"
-        >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="md:hidden glass-panel border-t border-black/5">
-          <nav className="max-w-[1440px] mx-auto px-6 flex flex-col gap-4 py-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-sm font-mono uppercase tracking-widest text-neutral-500 hover:text-black transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled 
+          ? "bg-white/80 backdrop-blur-lg border-b border-gray-100 py-3" 
+          : "bg-transparent py-6"
       )}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        {/* LOGO AREA */}
+        <NavLink to="/" className="transition-transform duration-300 hover:scale-[1.03]">
+          <img 
+            src={logoImg} 
+            alt="Márcia Ferreira" 
+            className="h-12 md:h-14 w-auto object-contain mix-blend-multiply" 
+          />
+        </NavLink>
+
+        {/* MENU - Estilo Apple */}
+        <nav className="hidden md:flex items-center gap-8">
+          <NavLink to="/" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+            Início
+          </NavLink>
+          <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all active:scale-95 shadow-lg">
+            Agendar Agora
+          </button>
+        </nav>
+      </div>
     </header>
   );
 };
