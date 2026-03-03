@@ -1,48 +1,90 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import heroBanner from "@/assets/hero-banner.jpg";
+import { useEffect, useRef } from "react";
+import Icon from "./Icon";
 
 const HeroSection = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      titleRef.current?.classList.add("reveal-active");
+    }, 400);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={heroBanner}
-          alt="Ingredientes naturais e botânicos"
-          className="w-full h-full object-cover"
+    <section className="min-h-screen relative flex items-center justify-center overflow-hidden border-b border-neutral-100">
+      {/* Abstract Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-gradient-to-tr from-neutral-100 to-transparent rounded-full blur-[100px] animate-float" />
+        <div
+          className="absolute bottom-[20%] right-[20%] w-[400px] h-[400px] bg-gradient-to-bl from-neutral-100 to-transparent rounded-full blur-[80px] animate-float"
+          style={{ animationDelay: "-3s" }}
         />
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0 bg-foreground/30" />
       </div>
 
-      <div className="container relative z-10 pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-xl"
-        >
-          <span className="inline-block text-xs font-body tracking-[0.3em] uppercase text-natura-cream/80 mb-4">
-            Beleza que vem da natureza
+      <div className="relative z-10 text-center px-4 max-w-7xl mx-auto">
+        {/* Badge */}
+        <div className="flex items-center justify-center gap-4 mb-8 animate-on-scroll">
+          <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
+          <span className="text-xs font-mono uppercase tracking-[0.3em] text-neutral-400">
+            Ciência Natural
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-primary-foreground leading-[1.1] mb-6">
-            A essência da{" "}
-            <span className="italic">natureza</span>{" "}
-            na sua pele
-          </h1>
-          <p className="text-base md:text-lg font-body font-light text-primary-foreground/80 mb-8 max-w-md leading-relaxed">
-            Descubra nossa linha de produtos feitos com ingredientes 100% naturais e sustentáveis, 
-            pensados para cuidar de você e do planeta.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-natura-terracotta-light font-body tracking-wide">
-              Explorar Produtos
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body tracking-wide">
-              Saiba Mais
-            </Button>
+          <span className="w-12 h-[1px] bg-neutral-200" />
+        </div>
+
+        {/* Giant Typography */}
+        <h1
+          ref={titleRef}
+          className="text-6xl md:text-[10rem] leading-none font-bold tracking-tighter mb-8"
+        >
+          <div className="text-reveal-wrapper">
+            <span className="text-reveal-content text-black">PURA</span>
           </div>
-        </motion.div>
+          <br />
+          <div className="text-reveal-wrapper">
+            <span className="text-reveal-content text-stroke-outline hover:text-black transition-colors duration-500 cursor-default">
+              ESSÊNCIA.
+            </span>
+          </div>
+        </h1>
+
+        <p className="text-lg md:text-xl text-neutral-500 font-light max-w-2xl mx-auto mb-12 leading-relaxed animate-on-scroll delay-200">
+          Cosméticos de alta performance com ingredientes 100% naturais.{" "}
+          <span className="text-black font-medium">
+            Ciência e pureza na sua pele.
+          </span>
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 animate-on-scroll delay-300">
+          <a
+            href="#produtos"
+            className="group relative flex items-center justify-center overflow-hidden rounded-full p-[1px] transform hover:scale-105 transition-transform duration-300"
+          >
+            <span className="absolute inset-[-1000%] animate-spin-slow bg-[conic-gradient(from_0deg,transparent_0_340deg,#000_360deg)]" />
+            <span className="relative flex h-full w-full items-center rounded-full bg-white px-8 py-4 ring-1 ring-black/5">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest mr-2">
+                Explorar Produtos
+              </span>
+              <Icon icon="solar:arrow-right-linear" className="text-lg transition-transform group-hover:translate-x-1" />
+            </span>
+          </a>
+
+          <a
+            href="#sobre"
+            className="text-xs font-mono uppercase tracking-widest text-neutral-500 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1"
+          >
+            Nossa Filosofia
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
+          Scroll
+        </span>
+        <Icon icon="solar:arrow-down-linear" className="text-neutral-400" />
       </div>
     </section>
   );

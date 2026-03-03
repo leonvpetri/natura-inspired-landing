@@ -1,84 +1,61 @@
-import { motion } from "framer-motion";
-import { Leaf, Droplets, Heart } from "lucide-react";
-import aboutNature from "@/assets/about-nature.jpg";
-
-const features = [
-  {
-    icon: Leaf,
-    title: "100% Natural",
-    description: "Ingredientes extraídos diretamente da biodiversidade brasileira.",
-  },
-  {
-    icon: Droplets,
-    title: "Sustentável",
-    description: "Embalagens recicláveis e processos que respeitam o meio ambiente.",
-  },
-  {
-    icon: Heart,
-    title: "Cruelty-Free",
-    description: "Nunca testamos nossos produtos em animais.",
-  },
-];
+import Icon from "./Icon";
 
 const AboutSection = () => {
   return (
-    <section id="sobre" className="py-20 md:py-28 bg-gradient-section">
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-              <img
-                src={aboutNature}
-                alt="Floresta tropical brasileira"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-primary/10" />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <span className="text-xs font-body tracking-[0.3em] uppercase text-muted-foreground">
-              Nossa Essência
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mt-3 mb-6">
-              Conectando você à{" "}
-              <span className="italic text-gradient-natura">natureza</span>
-            </h2>
-            <p className="font-body font-light text-muted-foreground leading-relaxed mb-10">
-              Há mais de uma década, buscamos na riqueza da flora brasileira os melhores 
-              ingredientes para criar produtos que cuidam da sua beleza e do mundo ao seu redor. 
-              Cada formulação é uma expressão de respeito à natureza e ao bem-estar.
+    <section id="sobre" className="py-24 border-t border-dashed border-black/10 bg-neutral-50/50">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div className="md:col-span-3">
+          <h2 className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4 sticky top-24 animate-on-scroll">
+            02 / Filosofia
+          </h2>
+        </div>
+        <div className="md:col-span-9 space-y-16">
+          {/* Main Statement */}
+          <div className="motion-enter">
+            <h3 className="text-4xl md:text-6xl font-bold tracking-tighter text-black leading-[1.05] mb-8">
+              Beleza que respeita
+              <br />
+              a natureza.
+            </h3>
+            <p className="text-lg text-neutral-500 font-light max-w-2xl leading-relaxed">
+              Cada fórmula é uma convergência entre ciência avançada e os ingredientes mais puros
+              da biodiversidade brasileira. Sem concessões, sem excessos —{" "}
+              <span className="text-black font-medium">apenas o essencial.</span>
             </p>
+          </div>
 
-            <div className="space-y-8">
-              {features.map((feature) => (
-                <div key={feature.title} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-lg text-foreground mb-1">
-                      {feature.title}
-                    </h3>
-                    <p className="font-body font-light text-sm text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          {/* Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-dashed border-black/10">
+            <div className="motion-enter delay-100">
+              <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center mb-4">
+                <Icon icon="solar:leaf-linear" className="text-xl text-neutral-600" />
+              </div>
+              <h4 className="text-sm font-semibold text-black mb-2">100% Natural</h4>
+              <p className="text-sm text-neutral-500 leading-relaxed">
+                Ingredientes extraídos diretamente da flora brasileira. Sem parabenos, sem sulfatos,
+                sem fragrâncias sintéticas.
+              </p>
             </div>
-          </motion.div>
+            <div className="motion-enter delay-200">
+              <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center mb-4">
+                <Icon icon="solar:planet-linear" className="text-xl text-neutral-600" />
+              </div>
+              <h4 className="text-sm font-semibold text-black mb-2">Sustentável</h4>
+              <p className="text-sm text-neutral-500 leading-relaxed">
+                Embalagens recicláveis e processos que respeitam o meio ambiente.
+                Carbono neutro em toda a cadeia.
+              </p>
+            </div>
+            <div className="motion-enter delay-300">
+              <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center mb-4">
+                <Icon icon="solar:heart-linear" className="text-xl text-neutral-600" />
+              </div>
+              <h4 className="text-sm font-semibold text-black mb-2">Cruelty-Free</h4>
+              <p className="text-sm text-neutral-500 leading-relaxed">
+                Nunca testamos em animais. Certificados internacionais de ética e responsabilidade.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

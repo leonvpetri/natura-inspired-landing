@@ -1,29 +1,57 @@
-import { Leaf } from "lucide-react";
+const marqueeItems = [
+  "Beleza Natural",
+  "Cruelty-Free",
+  "100% Vegano",
+  "Sustentável",
+  "Ciência Pura",
+  "Carbono Neutro",
+  "Feito no Brasil",
+  "Clean Beauty",
+  "Beleza Natural",
+  "Cruelty-Free",
+  "100% Vegano",
+  "Sustentável",
+  "Ciência Pura",
+  "Carbono Neutro",
+  "Feito no Brasil",
+  "Clean Beauty",
+];
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-foreground">
-      <div className="container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <Leaf className="w-5 h-5 text-background/60" />
-            <span className="font-display text-lg text-background/80">Essência</span>
-          </div>
-          
+    <footer>
+      {/* Marquee */}
+      <div className="overflow-hidden py-12 bg-black text-white/30 text-xs font-mono uppercase tracking-[0.3em]">
+        <div className="marquee-track">
+          {marqueeItems.map((item, i) => (
+            <span key={i} className="mx-8">
+              • {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer Content */}
+      <div className="bg-black text-white py-12">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <span className="font-bold tracking-tight text-lg">
+            AURA<span className="font-light opacity-50">skin</span>
+          </span>
+
           <nav className="flex flex-wrap justify-center gap-6">
-            {["Produtos", "Sobre", "Depoimentos", "Contato"].map((item) => (
+            {["Produtos", "Sobre", "Sustentabilidade", "Contato"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-body font-light text-background/50 hover:text-background/80 transition-colors"
+                className="text-xs font-mono uppercase tracking-widest text-white/40 hover:text-white/80 transition-colors"
               >
                 {item}
               </a>
             ))}
           </nav>
 
-          <p className="font-body text-xs text-background/40">
-            © 2026 Essência. Todos os direitos reservados.
+          <p className="text-[10px] font-mono text-white/30 uppercase tracking-widest">
+            © 2026 AURA. Todos os direitos reservados.
           </p>
         </div>
       </div>
