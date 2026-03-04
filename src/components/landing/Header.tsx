@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { NavLink } from "../NavLink"; 
-import logoImg from "../../assets/marcia-logo.jpg"; 
+import { NavLink } from "../NavLink";
+import logoImg from "../../assets/marcia-logo.jpg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,46 +16,56 @@ const Header = () => {
 
   // Lista dos itens originais do menu que haviam sumido
   const menuItems = [
-    { name: "PRODUTOS", path: "/produtos" },
-    { name: "SOBRE", path: "/sobre" },
-    { name: "SUSTENTABILIDADE", path: "/sustentabilidade" },
-    { name: "CONTATO", path: "/contato" },
+    { name: "PRODUTOS", path: "#produtos" },
+    { name: "SOBRE", path: "#sobre" },
+    { name: "SUSTENTABILIDADE", path: "#ingredientes" },
+    { name: "CONTATO", path: "#contato" },
   ];
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled 
-          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 py-3" 
-          : "bg-transparent py-5"
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 py-4"
+          : "bg-transparent py-10"
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        
-        {/* LOGO - Agora integrada corretamente */}
-        <NavLink to="/" className="transition-transform duration-300 hover:scale-[1.03]">
-          <img 
-            src={logoImg} 
-            alt="Márcia Ferreira" 
-            className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" 
-          />
-        </NavLink>
+      <div className="container mx-auto px-6 flex items-center justify-center md:justify-between relative">
 
-        {/* MENU RESTAURADO - Com os itens originais da AuraSkin */}
-        <nav className="hidden md:flex items-center gap-10">
+        {/* LOGO - Agora integrada corretamente */}
+        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="transition-transform duration-300 hover:scale-[1.03] relative z-10">
+          <img
+            src={logoImg}
+            alt="Márcia Ferreira"
+            className="h-28 md:h-32 w-auto object-contain mix-blend-multiply contrast-[1.05]"
+          />
+        </a>
+
+        {/* MENU RESTAURADO E CENTRALIZADO */}
+        <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           {menuItems.map((item) => (
-            <NavLink 
+            <a
               key={item.name}
-              to={item.path} 
+              href={item.path}
               className="text-[11px] tracking-[0.2em] font-medium text-gray-500 hover:text-black transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector(item.path)?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               {item.name}
-            </NavLink>
+            </a>
           ))}
-          
-          {/* BOTÃO DE AÇÃO */}
-          <button className="bg-black text-white px-6 py-2 rounded-full text-[11px] tracking-widest font-medium hover:bg-gray-800 transition-all active:scale-95 shadow-sm">
+
+          {/* BOTÃO DE AÇÃO FORMATADO COMO MENU */}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="text-[11px] tracking-[0.2em] font-medium text-gray-500 hover:text-black transition-colors uppercase"
+          >
             AGENDAR AGORA
           </button>
         </nav>

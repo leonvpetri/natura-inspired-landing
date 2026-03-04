@@ -76,6 +76,7 @@
     transform: translateY(40px) scale(0.98);
     filter: blur(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -89,6 +90,7 @@
     transform: translateY(20px);
     filter: blur(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -116,11 +118,30 @@
 }
 
 /* Stagger Delays */
-.delay-100 { animation-delay: 0.1s; transition-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; transition-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; transition-delay: 0.3s; }
-.delay-500 { animation-delay: 0.5s; transition-delay: 0.5s; }
-.delay-700 { animation-delay: 0.7s; transition-delay: 0.7s; }
+.delay-100 {
+  animation-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+  transition-delay: 0.7s;
+}
 
 /* Text Reveal */
 .text-reveal-wrapper {
@@ -153,8 +174,13 @@
 
 /* Marquee */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -165,8 +191,15 @@
 
 /* Float */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
@@ -175,8 +208,13 @@
 
 /* Spin */
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-spin-slow {
