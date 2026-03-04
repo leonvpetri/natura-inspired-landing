@@ -75,18 +75,16 @@ const HeroSection = () => {
         </div>
 
         {/* Right Column: Hero Video Component */}
-        <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] animate-on-scroll rounded-br-[8rem] group bg-white">
+        <div className="relative w-full max-w-[400px] mx-auto lg:ml-auto overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-105 brightness-[1.02] contrast-[1.05]"
+            className="w-full h-auto object-contain"
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
-          {/* Subtle Overlay */}
-          <div className="absolute inset-0 bg-black/5 mix-blend-overlay pointer-events-none" />
         </div>
       </div>
 
