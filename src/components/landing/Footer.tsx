@@ -1,4 +1,4 @@
-import marciaLogo from '../../assets/marcia-logo.jpg';
+import marciaLogo from '../../assets/marcia-logo-f.png';
 
 const marqueeItems = [
   "Beleza Natural",
