@@ -36,6 +36,7 @@ const Footer = () => {
       {/* Footer Content */}
       <div className="bg-black text-white py-12">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* LOGO ADICIONADA CONFORME SOLICITADO */}
           <img
             src={marciaLogo}
             alt="Márcia Ferreira"

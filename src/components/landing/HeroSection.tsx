@@ -19,7 +19,7 @@ const HeroSection = () => {
         <div className="flex flex-col items-center justify-center">
           {/* Badge */}
           <div className="flex items-center gap-4 mb-8 animate-on-scroll">
-            <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
+            <span className="w-12 h-[1px] bg-neutral-200" />
             <span className="text-xs font-mono uppercase tracking-[0.3em] text-neutral-400">
               Ciência Natural
             </span>
