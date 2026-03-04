@@ -33,7 +33,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-center md:justify-between relative">
 
-        {/* LOGO - Agora integrada corretamente com o novo estilo solicitado */}
+        {/* LOGO - Agora integrada corretamente com o novo estilo solicitado e tamanho ajustado */}
         <a
           href="#"
           onClick={(e) => {
@@ -46,7 +46,7 @@ const Header = () => {
             <img
               src={logoImg}
               alt="Márcia Ferreira"
-              className="h-20 md:h-24 w-auto object-contain"
+              className="h-28 md:h-32 w-auto object-contain"
             />
           </div>
         </a>
