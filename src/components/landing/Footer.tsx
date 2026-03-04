@@ -1,3 +1,5 @@
+import marciaLogo from '../../assets/marcia-logo.jpg';
+
 const marqueeItems = [
   "Beleza Natural",
   "Cruelty-Free",
@@ -34,9 +36,11 @@ const Footer = () => {
       {/* Footer Content */}
       <div className="bg-black text-white py-12">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <span className="font-bold tracking-tight text-lg">
-            AURA<span className="font-light opacity-50">skin</span>
-          </span>
+          <img
+            src={marciaLogo}
+            alt="Márcia Ferreira"
+            className="h-16 w-auto object-contain"
+          />
 
           <nav className="flex flex-wrap justify-center gap-6">
             {["Produtos", "Sobre", "Sustentabilidade", "Contato"].map((item) => (

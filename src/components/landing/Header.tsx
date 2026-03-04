@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { NavLink } from "../NavLink";
-import logoImg from "../../assets/marcia-logo.jpg";
+import marciaVideo from "../../assets/marcia-video.mp4";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +32,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-center md:justify-between relative">
 
-        {/* LOGO - Novo estilo simplificado e tamanho maior solicitado */}
+        {/* LOGO - Substituída por vídeo conforme solicitado */}
         <a
           href="#"
           onClick={(e) => {
@@ -42,11 +41,15 @@ const Header = () => {
           }}
           className="relative z-10"
         >
-          <img
-            src={logoImg}
-            alt="Márcia Ferreira"
-            className="h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-105"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-20 md:h-24 w-auto object-contain"
+          >
+            <source src={marciaVideo} type="video/mp4" />
+          </video>
         </a>
 
         {/* MENU RESTAURADO E CENTRALIZADO */}

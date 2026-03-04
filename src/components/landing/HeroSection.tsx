@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import Icon from "./Icon";
-import backgroundVideo from "../../assets/marcia-video.mp4";
 
 const HeroSection = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -14,10 +13,10 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden border-b border-neutral-100 bg-white">
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center pt-28 pb-20">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center pt-28 pb-20">
 
-        {/* Left Column: Typography & CTAs */}
-        <div className="text-left flex flex-col items-start justify-center">
+        {/* Center Content: Typography & CTAs */}
+        <div className="flex flex-col items-center justify-center">
           {/* Badge */}
           <div className="flex items-center gap-4 mb-8 animate-on-scroll">
             <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
@@ -72,19 +71,6 @@ const HeroSection = () => {
               Nossa Filosofia
             </a>
           </div>
-        </div>
-
-        {/* Right Column: Hero Video Component */}
-        <div className="relative w-full max-w-[400px] mx-auto lg:ml-auto overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-auto object-contain"
-          >
-            <source src={backgroundVideo} type="video/mp4" />
-          </video>
         </div>
       </div>
 
