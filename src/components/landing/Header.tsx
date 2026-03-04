@@ -46,7 +46,7 @@ const Header = () => {
             loop
             muted
             playsInline
-            className="h-32 md:h-36 w-auto object-contain"
+            className="h-36 md:h-40 w-auto object-contain"
           >
             <source src={marciaVideo} type="video/mp4" />
           </video>
