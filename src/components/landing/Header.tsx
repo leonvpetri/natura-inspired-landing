@@ -33,13 +33,22 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-center md:justify-between relative">
 
-        {/* LOGO - Agora integrada corretamente */}
-        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="transition-transform duration-300 hover:scale-[1.03] relative z-10">
-          <img
-            src={logoImg}
-            alt="Márcia Ferreira"
-            className="h-28 md:h-32 w-auto object-contain mix-blend-multiply contrast-[1.05]"
-          />
+        {/* LOGO - Agora integrada corretamente com o novo estilo solicitado */}
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="relative z-10"
+        >
+          <div className="px-4 py-2 bg-white/60 backdrop-blur-md rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <img
+              src={logoImg}
+              alt="Márcia Ferreira"
+              className="h-20 md:h-24 w-auto object-contain"
+            />
+          </div>
         </a>
 
         {/* MENU RESTAURADO E CENTRALIZADO */}
