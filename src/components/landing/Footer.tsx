@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <footer>
       {/* Marquee */}
-      <div className="overflow-hidden py-12 bg-black text-white/30 text-xs font-mono uppercase tracking-[0.3em]">
+      <div className="overflow-hidden py-12 bg-[#020202] text-white/30 text-xs font-mono uppercase tracking-[0.3em]">
         <div className="marquee-track">
           {marqueeItems.map((item, i) => (
             <span key={i} className="mx-8">
