@@ -1,4 +1,4 @@
-import marciaLogo from '../../assets/marcia-logo-f.png';
+import marciaLogo from '../../assets/marcia-footer.png';
 
 const marqueeItems = [
   "Beleza Natural",
@@ -40,7 +40,7 @@ const Footer = () => {
           <img
             src={marciaLogo}
             alt="Márcia Ferreira"
-            className="h-16 w-auto object-contain"
+            className="h-32 md:h-36 w-auto object-contain"
           />
 
           <nav className="flex flex-wrap justify-center gap-6">
