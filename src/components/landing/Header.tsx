@@ -33,7 +33,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-center md:justify-between relative">
 
-        {/* LOGO - Agora integrada corretamente com o novo estilo solicitado e tamanho ajustado */}
+        {/* LOGO - Novo estilo simplificado e tamanho maior solicitado */}
         <a
           href="#"
           onClick={(e) => {
@@ -42,13 +42,11 @@ const Header = () => {
           }}
           className="relative z-10"
         >
-          <div className="px-4 py-2 bg-white/60 backdrop-blur-md rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-            <img
-              src={logoImg}
-              alt="Márcia Ferreira"
-              className="h-28 md:h-32 w-auto object-contain"
-            />
-          </div>
+          <img
+            src={logoImg}
+            alt="Márcia Ferreira"
+            className="h-32 md:h-36 w-auto object-contain transition-transform duration-300 hover:scale-105"
+          />
         </a>
 
         {/* MENU RESTAURADO E CENTRALIZADO */}
